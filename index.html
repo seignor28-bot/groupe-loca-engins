@@ -1,0 +1,47 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Groupe Loca-Engins — Location d'engins lourds, Togo</title>
+<style>
+:root{--bg:#fff;--tx:#1a1a1a;--card:#f4f4f2;--ac:#f5b400;--mu:#666}
+@media(prefers-color-scheme:dark){:root{--bg:#121212;--tx:#f0f0f0;--card:#1e1e1e;--mu:#aaa}}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,sans-serif;background:var(--bg);color:var(--tx)}
+header{background:#1a1a1a;color:#fff;padding:14px 16px;display:flex;justify-content:space-between;align-items:center}
+header b{color:var(--ac);font-size:18px}
+button.l{background:var(--ac);border:0;border-radius:6px;padding:6px 12px;font-weight:700}
+.hero{padding:36px 16px;text-align:center;background:#1a1a1a;color:#fff}
+.hero h1{margin:0 0 8px;font-size:26px}.hero p{margin:0 0 16px;color:#ddd}
+.wa{display:inline-block;background:#25d366;color:#fff;text-decoration:none;padding:12px 20px;border-radius:8px;font-weight:700}
+main{max-width:900px;margin:auto;padding:16px}
+h2{border-left:5px solid var(--ac);padding-left:10px}
+.g{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.c{background:var(--card);border-radius:10px;overflow:hidden}
+.c img,.ph{width:100%;height:180px;object-fit:cover;display:block;background:#ccc}
+.ph{display:flex;align-items:center;justify-content:center;color:#555;font-size:14px}
+.c div.t{padding:12px}.c h3{margin:0 0 4px;font-size:17px}.p{color:var(--mu);margin:0 0 10px}
+.c a{display:block;text-align:center;background:#25d366;color:#fff;text-decoration:none;padding:8px;border-radius:6px;font-weight:600}
+footer{background:#1a1a1a;color:#ccc;padding:20px 16px;font-size:13px;text-align:center}
+</style></head><body>
+<header><b>Groupe Loca-Engins</b><button class="l" onclick="L()" id="lb">EN</button></header>
+<section class="hero"><h1 data-k="h1"></h1><p data-k="sub"></p><a class="wa" id="wa0" target="_blank" data-k="devis"></a></section>
+<main>
+<h2 data-k="fl"></h2><div class="g" id="g"></div>
+<h2 data-k="soon"></h2><p data-k="soonp"></p>
+</main>
+<footer><p><b>Groupe Loca-Engins</b> — Services Loca BTP SARL<br><span data-k="seat"></span><br>WhatsApp : 90 42 64 82<br><span data-k="dg"></span> : EGBETOKE kokoroko A Dodzi<br>© 2026</p></footer>
+<script>
+const N="22890426482";
+const T={fr:{h1:"Location d'engins lourds au Togo",sub:"Grues, chargeuse, chariot élévateur, Manitou, bulldozer",devis:"Devis rapide sur WhatsApp",fl:"Notre flotte",soon:"Bientôt",soonp:"Location de voitures, véhicules de liaison et véhicules à vendre.",seat:"Siège : Kégué, Lomé, Togo",dg:"Directeur Général",day:"par jour",q:"Prix sur devis",ask:"Demander un devis",lang:"EN",ph:"Photo bientôt"},
+en:{h1:"Heavy equipment rental in Togo",sub:"Cranes, loader, forklift, Manitou, bulldozer",devis:"Quick quote on WhatsApp",fl:"Our fleet",soon:"Coming soon",soonp:"Car rental, liaison vehicles and vehicles for sale.",seat:"Head office: Kégué, Lomé, Togo",dg:"Managing Director",day:"per day",q:"Price on request",ask:"Request a quote",lang:"FR",ph:"Photo coming soon"}};
+const F=[["Grue 25 t XCMG","Crane 25 t XCMG",250000,"grue25-xcmg"],["Grue 25 t Zoomlion","Crane 25 t Zoomlion",250000,"grue25-zoomlion"],["Grue 35 t","Crane 35 t",350000,""],["Grue 45 t PPM","Crane 45 t PPM",500000,"grue45"],["Camion-grue 11 t","Crane truck 11 t",0,"grue11"],["Grue 110 t","Crane 110 t",0,"grue110"],["Chargeuse Shantui","Shantui loader",0,"chargeuse"],["Manitou 4 t","Manitou 4 t",250000,""],["Chariot élévateur 4 t","Forklift 4 t",200000,""],["Bulldozer","Bulldozer",250000,""]];
+let lg="fr";
+function L(){lg=lg=="fr"?"en":"fr";R()}
+function R(){const t=T[lg];document.documentElement.lang=lg;
+document.querySelectorAll("[data-k]").forEach(e=>e.textContent=t[e.dataset.k]);
+lb.textContent=t.lang;
+wa0.href="https://wa.me/"+N+"?text="+encodeURIComponent(t.devis);
+g.innerHTML=F.map(f=>{const n=lg=="fr"?f[0]:f[1];
+const im=f[3]?`<img src="photos/${f[3]}.jpg" alt="${n}" loading="lazy">`:`<div class="ph">${t.ph}</div>`;
+const pr=f[2]?f[2].toLocaleString("fr-FR")+" FCFA / "+t.day:t.q;
+return `<div class="c">${im}<div class="t"><h3>${n}</h3><p class="p">${pr}</p><a target="_blank" href="https://wa.me/${N}?text=${encodeURIComponent(n)}">${t.ask}</a></div></div>`}).join("")}
+R();
+</script></body></html>
